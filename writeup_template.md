@@ -13,13 +13,13 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./images/undistort_calibration1.png "Undistorted"
+[image1]: ./images/undist_calibration1.png "Undistorted"
 [image2]: ./test_images/tracked/undist_test1.jpg "Road Transformed"
 [image3]: ./test_images/tracked/test1.jpg "Binary Example"
 [image4]: ./test_images/tracked/Warped_test1.jpg "Warp Example"
-[image5]: ./test_images/tracked/laneline_test1.jpg "Fit Visual"
+[image5]: ./test_images/tracked/laneline_test1.png "Fit Visual"
 [image6]: ./test_images/tracked/Out1_test1.jpg "Output"
-[video1]: ./project_video.mp4 "Video"
+[video1]: ./test_videos_output/project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
