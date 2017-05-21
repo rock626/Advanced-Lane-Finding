@@ -98,7 +98,7 @@ For vehicle position, camera center is taken as mid of left and right lanes (fro
 
 ### Pipeline (video)
 
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result](./test_videos_output/project_video.mp4)
 
 ---
 
@@ -106,4 +106,7 @@ Here's a [link to my video result](./project_video.mp4)
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
+For applying thresholds, i experimented different approaches and failed many times.I tried s,l channels from hsl image and r,g channels from rgb and combined with gradient threshold.But once i plotted lane line , there were some issues like lanes going inward or outward.I even tried applying a region of interest to mask the unwanted areas which might effect the histogram.That too didnt help either.Then i came across this FAQ on Advanced lane finding video from udacity.After going through i tried myself at hsv color space. By changing the thresholds, i was able to detect lane line for most of the frames.
+
+I didnt apply any averaging/smoothing techinques so i think my pipeline might fail when there are bad frames.
 Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
