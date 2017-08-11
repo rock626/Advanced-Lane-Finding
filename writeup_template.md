@@ -21,13 +21,7 @@ The goals / steps of this project are the following:
 [image6]: ./test_images/tracked/Out1_test1.jpg "Output"
 [video1]: ./test_videos_output/project_video.mp4 "Video"
 
-## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
-
-### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
-
----
-
-### Camera Calibration
+** Camera Calibration**
 
 The code for this step is contained in the 2-3 code cells of the IPython notebook located in "./p4.ipynb".  
 
@@ -37,21 +31,21 @@ I then used the output `objpoints` and `imgpoints` to compute the camera calibra
 
 ![alt text][image1]
 
-### Pipeline (single images)
+** Pipeline (single images)**
 
-#### 1. Distortion correction:
+** 1. Distortion correction:**
 
 To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one:
 
 ![alt text][image2]
 
-#### 2. Applying color and binary thresholds.
+** 2. Applying color and binary thresholds.**
 
 I used a combination of color and gradient thresholds to generate a binary image (code cell 6). For color thresholds i used a combination of s channel from hls image and v channel from hsv image.I then combined with xand y gradient threshold on undistorted image. Here's an example of my output for this step.
 
 ![alt text][image3]
 
-#### 3. Perspective transform:
+** 3. Perspective transform:**
 
 For perpective transform , i defined source and destination points and used cv2.getPerspectiveTransform to transform the image(part of the function 'process_image'). I chose the hardcode the source and destination points in the following manner:
 
@@ -73,7 +67,7 @@ By visualizing the images manually, i verifies that lanes are parallel and dista
 
 ![alt text][image4]
 
-#### 4. Finding lane lines:
+** 4. Finding lane lines:**
 
 I used the method 'peaks in a histogram' from the classroom to find the lane lines and used the classroom code snippets.
 'findlanelines' method has the code which takes warped and undistorted images as input.Histogram is used for the 1st frame to calculate the lane coefficients and from the second frame onwards, previously calculated polynomial fit is used.
@@ -82,13 +76,13 @@ An example image which shows window sliding and the polynomial fit for left and 
 
 ![alt text][image5]
 
-#### 5. Radius of curvature of the lane and the position of the vehicle with respect to center.
+** 5. Radius of curvature of the lane and the position of the vehicle with respect to center.**
 
 Code for this is present in function 'process_image'.For radius of curvature,x and y values are converted from pixels space to meters and formula from the classroom is used.
 
 For vehicle position, camera center is taken as mid of left and right lanes (from the polynomial coefficients).Then center of image is calculated and the difference multiplied by meters per pixel in x dimension.
 
-#### 6. An image with lane lines and radius of curvature plotted onto original image.
+** 6. An image with lane lines and radius of curvature plotted onto original image.**
 
 'visualize_img method' is used to plot the lane line onto original image and cv2.putText is used to write the curvature.
 
@@ -96,15 +90,15 @@ For vehicle position, camera center is taken as mid of left and right lanes (fro
 
 ---
 
-### Pipeline (video)
+** Pipeline (video)**
 
 Here's a [link to my video result](./test_videos_output/project_video.mp4)
 
 ---
 
-### Discussion
+** Discussion**
 
-#### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
+** 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?**
 
 For applying thresholds, i experimented different approaches and failed many times.I tried s,l channels from hsl image and r,g channels from rgb and combined with gradient threshold.But once i plotted lane line , there were some issues like lanes going inward or outward.I even tried applying a region of interest to mask the unwanted areas which might effect the histogram.That too didnt help either.Then i came across this FAQ on Advanced lane finding video from udacity.After going through i tried myself at hsv color space. By changing the thresholds, i was able to detect lane line for most of the frames.
 
