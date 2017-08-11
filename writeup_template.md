@@ -21,7 +21,7 @@ The goals / steps of this project are the following:
 [image6]: ./test_images/tracked/Out1_test1.jpg "Output"
 [video1]: ./test_videos_output/project_video.mp4 "Video"
 
-** Camera Calibration**
+## Camera Calibration##
 
 The code for this step is contained in the 2-3 code cells of the IPython notebook located in "./p4.ipynb".  
 
